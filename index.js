@@ -52,5 +52,5 @@ const retweet = () => {
 
 // grab & retweet as soon as program is running...
 retweet();
-// retweet in every 10 second
-setInterval(retweet, 10000);
+// retweet in every 20 second
+setInterval(retweet, 20000);
