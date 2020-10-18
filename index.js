@@ -19,7 +19,7 @@ const retweet = () => {
         if (!err) {
           // grab ID of tweet to retweet
             const retweetId = statuses[0].id_str;
-            // Tell TWITTER to retweet
+            // Tell TWITTER to retweet, limitation is 400 tweet every 15 min
             Twitter.post('statuses/retweet/:id', {
                 id: retweetId
             }, (err, response) => {
@@ -28,6 +28,7 @@ const retweet = () => {
                     console.log('Duplication found not retweeting');
                 } else {
                   console.log('Retweeted!!!');
+                  // Tell TWITTER to like, limitation is 1000 likes per day.
                   Twitter.post('favorites/create', {
                     id: retweetId
                   }, (err, response) => {
@@ -52,5 +53,5 @@ const retweet = () => {
 
 // grab & retweet as soon as program is running...
 retweet();
-// retweet in every 20 second
-setInterval(retweet, 20000);
+// retweet in every 90 second
+setInterval(retweet, 90000);
