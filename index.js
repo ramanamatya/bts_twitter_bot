@@ -10,8 +10,8 @@ const Twitter = new twit(config);
 //find latest tweet according the query 'q' in params
 const retweet = () => {
     const params = {
-        q: '#BTS OR @BTS_twt -filter:retweets -filter:replies',  // REQUIRED
-        result_type: 'mixed',
+        q: 'from:BTS_twt OR from:bts_bighit OR from:charts_k OR #BTS OR @BTS_twt -filter:retweets -filter:replies',  // REQUIRED
+        result_type: 'recent',
         lang: 'en'
     };
     Twitter.get('search/tweets', params, (err, {statuses}) => {
