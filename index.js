@@ -11,7 +11,7 @@ const Twitter = new twit(config);
 const retweet = () => {
     const params = {
         q: '#BTS OR @BTS_twt -filter:retweets -filter:replies',  // REQUIRED
-        result_type: 'recent',
+        result_type: 'mixed',
         lang: 'en'
     };
     Twitter.get('search/tweets', params, (err, {statuses}) => {
