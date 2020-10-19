@@ -52,7 +52,7 @@ const retweet = (param) => {
 };
 
 // grab & retweet as soon as program is running...
-retweet();
+retweet('#BTS OR @BTS_twt');
 // retweet in every 90 second
 setInterval(() => {
  retweet('#BTS OR @BTS_twt');
