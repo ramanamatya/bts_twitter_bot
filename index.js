@@ -8,9 +8,9 @@ const Twitter = new twit(config);
 //RETWEET BOT ==========================
 
 //find latest tweet according the query 'q' in params
-const retweet = () => {
+const retweet = (param) => {
     const params = {
-        q: 'from:BTS_twt OR from:bts_bighit OR from:charts_k OR #BTS OR @BTS_twt -filter:retweets -filter:replies',  // REQUIRED
+        q: `${param} -filter:retweets -filter:replies`, // REQUIRED
         result_type: 'recent',
         lang: 'en'
     };
@@ -54,4 +54,10 @@ const retweet = () => {
 // grab & retweet as soon as program is running...
 retweet();
 // retweet in every 90 second
-setInterval(retweet, 90000);
+setInterval(() => {
+ retweet('#BTS OR @BTS_twt');
+}, 90000);
+// retweet in every 100 sec from BTS_twt, bts_bighit, charts_k if there are any.
+setInterval(() => {
+  retweet('from:BTS_twt OR from:bts_bighit OR from:charts_k')
+}, 100000);
