@@ -10,7 +10,7 @@ const Twitter = new twit(config);
 //find latest tweet according the query 'q' in params
 const retweet = (param) => {
     const params = {
-        q: `${param} -filter:retweets -filter:replies`, // REQUIRED
+        q: `${param} -filter:replies`, // REQUIRED
         result_type: 'recent',
         lang: 'en'
     };
@@ -52,12 +52,12 @@ const retweet = (param) => {
 };
 
 // grab & retweet as soon as program is running...
-retweet('#BTS OR @BTS_twt');
-// retweet in every 90 second
+retweet('#BTS OR @BTS_twt -filter:retweets');
+// retweet in every 1200 second
 setInterval(() => {
- retweet('#BTS OR @BTS_twt');
-}, 90000);
-// retweet in every 100 sec from BTS_twt, bts_bighit, charts_k if there are any.
+ retweet('#BTS OR @BTS_twt -filter:retweets');
+}, 120000);
+// retweet in every 90 sec from BTS_twt, bts_bighit, charts_k if there are any.
 setInterval(() => {
   retweet('from:BTS_twt OR from:bts_bighit OR from:charts_k')
-}, 100000);
+}, 90000);
